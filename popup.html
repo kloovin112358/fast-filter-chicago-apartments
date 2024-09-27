@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chicago Apartments Fast Filter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <style>
+  .choices {
+    margin-bottom:0!important;
+  }
+  </style>
+  <body style="width:300px;">
+    <main>
+      <div class="container">
+        <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="filter-tab" data-bs-toggle="tab" data-bs-target="#filter-tab-pane" type="button" role="tab" aria-controls="filter-tab-pane" aria-selected="true">Search</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="savedsearches-tab" data-bs-toggle="tab" data-bs-target="#savedsearches-tab-pane" type="button" role="tab" aria-controls="savedsearches-tab-pane" aria-selected="false">Saved</button>
+          </li>
+        </ul>
+        <div class="tab-content p-2 pt-3" id="myTabContent">
+          <div class="tab-pane fade show active" id="filter-tab-pane" role="tabpanel" aria-labelledby="filter-tab" tabindex="0">
+            <section>
+              <h1 class="h4 mb-3">Search for Chicago Apts</h1>
+              <form>
+    
+                <!-- Apartment Site Field -->
+                <div class="form-group mb-2">
+                  <label for="apartmentSite">Apartment Site (required)</label>
+                  <select class="form-control" id="apartmentSite" required>
+                    <option value="">--------</option>
+                    <option value="www.apartments.com">Apartments.com</option>
+                    <option value="www.apartmentfinder.com">Apartment Finder</option>
+                    <option value="www.apartmentguide.com">Apartment Guide</option>
+                    <option value="www.compass.com">Compass</option>
+                    <option value="www.chicago.craigslist.org">Craigslist</option>
+                    <option value="www.domu.com">Domu</option>
+                    <option value="www.forrent.com">ForRent.com</option>
+                    <option value="www.hotpads.com">HotPads</option>
+                    <option value="www.realtor.com">Realtor.com</option>
+                    <option value="www.redfin.com">Redfin</option>
+                    <option value="www.rent.com">Rent.com</option>
+                    <option value="www.trulia.com">Trulia</option>
+                    <option value="www.zillow.com">Zillow</option>
+                  </select>
+                </div>
+    
+                <!-- Apartment Type Field -->
+                <div class="form-group mb-2">
+                  <label for="apartmentType">Apartment Type</label>
+                  <select class="form-control" id="apartmentType">
+                    <option value="">--------</option>
+                    <option value="studio">Studio</option>
+                    <option value="1-bedroom">1 Bedroom</option>
+                    <option value="2-bedroom">2 Bedroom</option>
+                    <option value="3-bedroom">3 Bedroom</option>
+                    <option value="4-bedroom">4 Bedroom</option>
+                  </select>
+                </div>
+          
+                <!-- Max Price Field -->
+                <div class="form-group mb-2">
+                  <label for="maxPrice">Max Rent</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">$</span>
+                    <input type="number" class="form-control" id="maxPrice" placeholder="Enter maximum rent" min="1" step="1">
+                  </div>
+    
+                </div>
+          
+                <!-- Neighborhood Field -->
+                <div class="form-group mb-3">
+                  <label for="neighborhood">Neighborhood</label>
+                  <select class="form-control" id="neighborhood">
+                    <option value="">--------</option>
+                    <option value="albany-park">Albany Park</option>
+                    <option value="altgeld-gardens">Altgeld Gardens</option>
+                    <option value="andersonville">Andersonville</option>
+                    <option value="arcadia-terrace">Arcadia Terrace</option>
+                    <option value="archer-heights">Archer Heights</option>
+                    <option value="armour-square">Armour Square</option>
+                    <option value="ashburn">Ashburn</option>
+                    <option value="ashburn-estates">Ashburn Estates</option>
+                    <option value="auburn-gresham">Auburn Gresham</option>
+                    <option value="austin">Austin</option>
+                    <option value="avalon-park">Avalon Park</option>
+                    <option value="avondale">Avondale</option>
+                    <option value="avondale-gardens">Avondale Gardens</option>
+                    <option value="back-of-the-yards">Back of the Yards</option>
+                    <option value="belmont-central">Belmont Central</option>
+                    <option value="belmont-cragin">Belmont Cragin</option>
+                    <option value="belmont-gardens">Belmont Gardens</option>
+                    <option value="belmont-heights">Belmont Heights</option>
+                    <option value="belmont-terrace">Belmont Terrace</option>
+                    <option value="beverly">Beverly</option>
+                    <option value="beverly-view">Beverly View</option>
+                    <option value="beverly-woods">Beverly Woods</option>
+                    <option value="big-oaks">Big Oaks</option>
+                    <option value="bowmanville">Bowmanville</option>
+                    <option value="brainerd">Brainerd</option>
+                    <option value="brickyard">Brickyard</option>
+                    <option value="bridgeport">Bridgeport</option>
+                    <option value="brighton-park">Brighton Park</option>
+                    <option value="bronzeville">Bronzeville</option>
+                    <option value="bucktown">Bucktown</option>
+                    <option value="budlong-woods">Budlong Woods</option>
+                    <option value="buena-park">Buena Park</option>
+                    <option value="burnside">Burnside</option>
+                    <option value="cabrini-green">Cabrini Green</option>
+                    <option value="calumet-heights">Calumet Heights</option>
+                    <option value="canaryville">Canaryville</option>
+                    <option value="central-station">Central Station</option>
+                    <option value="chatham">Chatham</option>
+                    <option value="chicago-lawn">Chicago Lawn</option>
+                    <option value="chinatown">Chinatown</option>
+                    <option value="chrysler-village">Chrysler Village</option>
+                    <option value="clarendon-park">Clarendon Park</option>
+                    <option value="clearing">Clearing</option>
+                    <option value="clearing-east">Clearing East</option>
+                    <option value="clearing-west">Clearing West</option>
+                    <option value="cottage-grove-heights">Cottage Grove Heights</option>
+                    <option value="cragin">Cragin</option>
+                    <option value="crestline">Crestline</option>
+                    <option value="dearborn-homes">Dearborn Homes</option>
+                    <option value="dearborn-park">Dearborn Park</option>
+                    <option value="douglas">Douglas</option>
+                    <option value="douglas-park">Douglas Park</option>
+                    <option value="dunning">Dunning</option>
+                    <option value="east-beverly">East Beverly</option>
+                    <option value="east-chatham">East Chatham</option>
+                    <option value="east-garfield-park">East Garfield Park</option>
+                    <option value="east-hyde-park">East Hyde Park</option>
+                    <option value="east-pilsen">East Pilsen</option>
+                    <option value="east-side">East Side</option>
+                    <option value="east-village">East Village</option>
+                    <option value="eden-green">Eden Green</option>
+                    <option value="edgebrook">Edgebrook</option>
+                    <option value="edgewater">Edgewater</option>
+                    <option value="edgewater-beach">Edgewater Beach</option>
+                    <option value="edgewater-glen">Edgewater Glen</option>
+                    <option value="edison-park">Edison Park</option>
+                    <option value="englewood">Englewood</option>
+                    <option value="fernwood">Fernwood</option>
+                    <option value="fifth-city">Fifth City</option>
+                    <option value="ford-city">Ford City</option>
+                    <option value="forest-glen">Forest Glen</option>
+                    <option value="fuller-park">Fuller Park</option>
+                    <option value="fulton-river-district">Fulton River District</option>
+                    <option value="gage-park">Gage Park</option>
+                    <option value="galewood">Galewood</option>
+                    <option value="garfield-ridge">Garfield Ridge</option>
+                    <option value="gladstone-park">Gladstone Park</option>
+                    <option value="gold-coast">Gold Coast</option>
+                    <option value="golden-gate">Golden Gate</option>
+                    <option value="goose-island">Goose Island</option>
+                    <option value="graceland-west">Graceland West</option>
+                    <option value="grand-boulevard">Grand Boulevard</option>
+                    <option value="grand-crossing">Grand Crossing</option>
+                    <option value="greater-grand-crossing">Greater Grand Crossing</option>
+                    <option value="greektown">Greektown</option>
+                    <option value="gresham">Gresham</option>
+                    <option value="groveland-park">Groveland Park</option>
+                    <option value="hamilton-park">Hamilton Park</option>
+                    <option value="hanson-park">Hanson Park</option>
+                    <option value="heart-of-chicago">Heart of Chicago</option>
+                    <option value="hegewisch">Hegewisch</option>
+                    <option value="hermosa">Hermosa</option>
+                    <option value="hollywood-park">Hollywood Park</option>
+                    <option value="homan-square">Homan Square</option>
+                    <option value="humboldt-park">Humboldt Park</option>
+                    <option value="hyde-park">Hyde Park</option>
+                    <option value="illinois-medical-district">Illinois Medical District</option>
+                    <option value="irving-park">Irving Park</option>
+                    <option value="irving-woods">Irving Woods</option>
+                    <option value="jackowo">Jackowo</option>
+                    <option value="jackson-park-highlands">Jackson Park Highlands</option>
+                    <option value="jefferson-park">Jefferson Park</option>
+                    <option value="k-town">K-Town</option>
+                    <option value="kelvyn-park">Kelvyn Park</option>
+                    <option value="kennedy-park">Kennedy Park</option>
+                    <option value="kensington">Kensington</option>
+                    <option value="kenwood">Kenwood</option>
+                    <option value="kilbourn-park">Kilbourn Park</option>
+                    <option value="kosciuszko-park">Kosciuszko Park</option>
+                    <option value="lake-meadows">Lake Meadows</option>
+                    <option value="lake-view">Lake View</option>
+                    <option value="lakewood">Lakewood</option>
+                    <option value="leclaire-courts">LeClaire Courts</option>
+                    <option value="lilydale">Lilydale</option>
+                    <option value="lincoln-park">Lincoln Park</option>
+                    <option value="lincoln-square">Lincoln Square</option>
+                    <option value="lithuanian-plaza">Lithuanian Plaza</option>
+                    <option value="little-italy">Little Italy</option>
+                    <option value="little-village">Little Village</option>
+                    <option value="logan-square">Logan Square</option>
+                    <option value="longwood-manor">Longwood Manor</option>
+                    <option value="lower-west-side">Lower West Side</option>
+                    <option value="loyola">Loyola</option>
+                    <option value="magnificent-mile">Magnificent Mile</option>
+                    <option value="margate-park">Margate Park</option>
+                    <option value="marquette-park">Marquette Park</option>
+                    <option value="marshall-square">Marshall Square</option>
+                    <option value="marynook">Marynook</option>
+                    <option value="mayfair">Mayfair</option>
+                    <option value="mckinley-park">McKinley Park</option>
+                    <option value="merchant-park">Merchant Park</option>
+                    <option value="montclare">Montclare</option>
+                    <option value="morgan-park">Morgan Park</option>
+                    <option value="mount-greenwood">Mount Greenwood</option>
+                    <option value="museum-campus">Museum Campus</option>
+                    <option value="new-city">New City</option>
+                    <option value="new-eastside">New Eastside</option>
+                    <option value="noble-square">Noble Square</option>
+                    <option value="north-austin">North Austin</option>
+                    <option value="north-center">North Center</option>
+                    <option value="north-kenwood">North Kenwood</option>
+                    <option value="north-lawndale">North Lawndale</option>
+                    <option value="north-mayfair">North Mayfair</option>
+                    <option value="north-park">North Park</option>
+                    <option value="nortown">Nortown</option>
+                    <option value="norwood-park">Norwood Park</option>
+                    <option value="norwood-park-east">Norwood Park East</option>
+                    <option value="norwood-park-west">Norwood Park West</option>
+                    <option value="ohare">O'Hare</option>
+                    <option value="oakland">Oakland</option>
+                    <option value="old-edgebrook">Old Edgebrook</option>
+                    <option value="old-irving-park">Old Irving Park</option>
+                    <option value="old-norwood">Old Norwood</option>
+                    <option value="old-town">Old Town</option>
+                    <option value="old-town-triangle">Old Town Triangle</option>
+                    <option value="oriole-park">Oriole Park</option>
+                    <option value="palmer-square">Palmer Square</option>
+                    <option value="park-manor">Park Manor</option>
+                    <option value="park-west">Park West</option>
+                    <option value="parkview">Parkview</option>
+                    <option value="peterson-park">Peterson Park</option>
+                    <option value="pill-hill">Pill Hill</option>
+                    <option value="pilsen">Pilsen</option>
+                    <option value="polish-downtown">Polish Downtown</option>
+                    <option value="polish-village">Polish Village</option>
+                    <option value="portage-park">Portage Park</option>
+                    <option value="prairie-shores">Prairie Shores</option>
+                    <option value="princeton-park">Princeton Park</option>
+                    <option value="printers-row">Printer's Row</option>
+                    <option value="pulaski-park">Pulaski Park</option>
+                    <option value="pullman">Pullman</option>
+                    <option value="ranch-triangle">Ranch Triangle</option>
+                    <option value="ravenswood">Ravenswood</option>
+                    <option value="ravenswood-gardens">Ravenswood Gardens</option>
+                    <option value="ravenswood-manor">Ravenswood Manor</option>
+                    <option value="river-north">River North</option>
+                    <option value="river-west">River West</option>
+                    <option value="riverdale">Riverdale</option>
+                    <option value="rogers-park">Rogers Park</option>
+                    <option value="roscoe-village">Roscoe Village</option>
+                    <option value="rosehill">Rosehill</option>
+                    <option value="roseland">Roseland</option>
+                    <option value="scottsdale">Scottsdale</option>
+                    <option value="sheridan-park">Sheridan Park</option>
+                    <option value="sherman-park">Sherman Park</option>
+                    <option value="smith-park">Smith Park</option>
+                    <option value="south-austin">South Austin</option>
+                    <option value="south-chicago">South Chicago</option>
+                    <option value="south-deering">South Deering</option>
+                    <option value="south-east-woodlawn">South East Woodlawn</option>
+                    <option value="south-lawndale">South Lawndale</option>
+                    <option value="south-loop">South Loop</option>
+                    <option value="south-shore">South Shore</option>
+                    <option value="stony-island-park">Stony Island Park</option>
+                    <option value="streeterville">Streeterville</option>
+                    <option value="tri-taylor">Tri-Taylor</option>
+                    <option value="ukrainian-village">Ukrainian Village</option>
+                    <option value="university-village">University Village</option>
+                    <option value="uptown">Uptown</option>
+                    <option value="victory-park">Victory Park</option>
+                    <option value="washington-heights">Washington Heights</option>
+                    <option value="washington-park">Washington Park</option>
+                    <option value="west-beverly">West Beverly</option>
+                    <option value="west-chatham">West Chatham</option>
+                    <option value="west-englewood">West Englewood</option>
+                    <option value="west-garfield-park">West Garfield Park</option>
+                    <option value="west-humboldt-park">West Humboldt Park</option>
+                    <option value="west-loop">West Loop</option>
+                    <option value="west-lawn">West Lawn</option>
+                    <option value="west-pullman">West Pullman</option>
+                    <option value="west-ridge">West Ridge</option>
+                    <option value="west-rogers-park">West Rogers Park</option>
+                    <option value="west-town">West Town</option>
+                    <option value="wicker-park">Wicker Park</option>
+                    <option value="woodlawn">Woodlawn</option>
+                    <option value="wrighthouse">Wright House</option>
+                  </select>
+                  <small class="text-muted fst-italic d-none" id="noNeighborhoodSearchHelpText">Note: the selected apartment site does not support neighborhood searching.</small>
+                </div>
+          
+                <!-- Submit Button -->
+                 <div>
+                  <button type="button" class="btn btn-success btn-sm" id="applyFilters">Launch Search <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></button>
+                  <button type="button" class="btn btn-link btn-sm" id="resetFiltersBtn">Reset Filters</button>
+                 </div><hr />
+                 <div class="mt-2 form-group">
+                    <button type="button" class="btn btn-outline-primary btn-sm w-100 mb-2" id="saveCurrentSearch" aria-describedby="saveDescription"><i class="bi bi-floppy me-1" aria-hidden="true"></i> Save URL from Active Tab</button>
+                    <small class="text-muted" id="saveDescription"><i>URL from active browser tab will be added to "Saved" tab in this extension.</i></small>
+                 </div>
+              </form>
+              <p id="statusResult" class="small pt-3">
+    
+              </p>
+            </section>
+          </div>
+          <div class="tab-pane fade" id="savedsearches-tab-pane" role="tabpanel" aria-labelledby="savedsearches-tab" tabindex="0">
+            <section>
+              <h1 class="h4 mb-3">Saved</h1>
+              <ul class="list-group my-3 fs-6" id="savedSearchesListGroup">
+              </ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="bootstrap.bundle.min.js" defer></script>
+    <script src="choices.min.js" defer></script>
+    <script src="popup.js" defer></script>
+  </body>
+</html>
